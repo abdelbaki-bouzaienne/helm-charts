@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: "1.0"
+description: MediaMTX (RTSP/WebRTC) + Human Detector (YOLOv8) - server-stack.yaml
+name: mediamtx-human
+type: application
+version: 0.1.0
