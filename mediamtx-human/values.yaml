@@ -1,0 +1,72 @@
+# -------------------------------------------------------
+# Valeurs issues exactement de server-stack.yaml
+# Corrigé : NodePort, namespace dev, toutes les env
+# -------------------------------------------------------
+
+namespace: dev
+
+mediamtx:
+  image: bluenviron/mediamtx:latest
+  replicas: 1
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+detector:
+  image: registry.nf-must.eu:5000/mon-ia-locale:v4
+  replicas: 1
+  env:
+    VIDEO_URL: "rtsp://mediamtx-service:8554/ingress"
+    VIDEO_USER: ""
+    VIDEO_PASS: ""
+    MODEL_PATH: "yolov8n.pt"
+    CONFIDENCE_THRESHOLD: "0.6"
+    DETECTION_INTERVAL: "5"
+    ALERT_COOLDOWN: "30"
+    SAVE_IMAGES: "false"
+    EMAIL_USER: ""
+    EMAIL_PASS: ""
+    TELEGRAM_TOKEN: ""
+    TELEGRAM_CHAT_ID: ""
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu: "2000m"
+
+# NodePort — valeurs exactes du server-stack.yaml
+service:
+  type: NodePort
+  mediamtx:
+    rtsp:
+      port: 8554
+      nodePort: 30554
+    webrtcHttp:
+      port: 8889
+      nodePort: 30889
+    webrtcUdp:
+      port: 8189
+      nodePort: 30189
+    api:
+      port: 9997
+      nodePort: 30997
+  detector:
+    http:
+      port: 5000
+      nodePort: 30500
+
+# Config mediamtx.yml (montée via ConfigMap)
+mediamtxConfig:
+  logLevel: info
+  apiAddress: ":9997"
+  rtspAddress: ":8554"
+  webrtcAddress: ":8889"
+  webrtcLocalUDPAddress: ":8189"
+  pathName: ingress
+  pathSource: publisher
