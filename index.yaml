@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  mediamtx-human:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2026-04-02T17:27:33.391083973+02:00"
+    description: MediaMTX (RTSP/WebRTC) + Human Detector (YOLOv8) - server-stack.yaml
+    digest: af1d6499492158fd7b2930ba42d1e52b8952bb107089a26d72b8ec1ea5854edb
+    name: mediamtx-human
+    type: application
+    urls:
+    - https://abdelbaki-bouzaienne.github.io/helm-charts/mediamtx-human-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-04-02T17:27:33.390625594+02:00"
