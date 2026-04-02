@@ -9,6 +9,6 @@ entries:
     name: mediamtx-human
     type: application
     urls:
-    - mediamtx-human-0.1.0.tgz
+    - mediamtx-human/
     version: 0.1.0
 generated: "2026-04-02T13:17:33.07249029Z"
