@@ -9,9 +9,9 @@ entries:
     name: mediamtx-human
     type: application
     urls:
-    - charts/mediamtx-human-0.1.0.tgz
     - https://abdelbaki-bouzaienne.github.io/helm-charts/mediamtx-human-0.1.0.tgz
     - mediamtx-human-0.1.0.tgz
+    - charts/mediamtx-human-0.1.0.tgz
     - https://abdelbaki-bouzaienne.github.io/helm-charts/mediamtx-human/mediamtx-human-0.1.0.tgz
     version: 0.1.0
 generated: "2026-04-03T11:29:03.552998194+02:00"
